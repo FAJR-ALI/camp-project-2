@@ -12,7 +12,17 @@ public class SubscribersPassenger extends Passenger{
             throw new IllegalArgumentException("Car capacity is zero !!");
         }
         reservedcar = obj;
-        double total = obj.getRoute().getTripPrice() - (discount * obj.getRoute().getTripPrice());
+        // the capacity will decrase
+        obj.setMaxCapacity(obj.getMaxCapacity() - 1);
+        double total = obj.getRoute().getTripPrice()  - (discount * obj.getRoute().getTripPrice());
         return total;
+    }
+    // اسوي ال to String
+    @Override
+    public String toString() {
+        return "SubscribersPassenger{" +
+                ", reservedcar=" + reservedcar +
+                ", tripCost=" + tripCost +
+                "} " + super.toString();
     }
 }

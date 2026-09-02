@@ -21,11 +21,21 @@ public class NonSubsecribePassenger extends Passenger{
             throw new IllegalArgumentException("Car capacity is zero!!");
         }
         reservedcar = obj;
+        // the capacity will decrase
+        obj.setMaxCapacity(obj.getMaxCapacity() - 1);
         if (discountCoupon) {
-            total = obj.getRoute().getTripPrice() - (obj.getRoute().getTripPrice() * 0.10);
+            total = obj.getRoute().getTripPrice()  - (obj.getRoute().getTripPrice() * 0.10);
         } else {
             total = obj.getRoute().getTripPrice();
         }
         return total;
+    }
+
+    @Override
+    public String toString() {
+        return "NonSubsecribePassenger{" +
+                "reservedcar=" + reservedcar +
+                ", tripCost=" + tripCost +
+                "} " + super.toString();
     }
 }
